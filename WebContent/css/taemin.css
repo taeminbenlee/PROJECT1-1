@@ -1,0 +1,456 @@
+@charset "UTF-8";
+
+
+
+.nav {
+ 	width: 100%;
+    height: 65px;
+    position: fixed;
+    line-height: 65px;
+    text-align: center;
+    font-family:"Apple SD 산돌고딕 Neo ",sans-serif;
+    z-index: 3;
+    font-size: 35%;
+    transform: translateY(-100%);
+    font-weight: 500; 
+    background-color: rgba(0,0,0,0.2)
+}
+
+
+.nav-container:hover .nav {
+  transform: translateY(0);
+}
+
+.nav div.logo {
+    float: left;
+    width: auto;
+    padding-left: 3rem;
+     height: 65px;
+}
+
+.nav div.logo a:hover {
+    color: #00E676;
+}
+
+a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 8px;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  background: rgba(29, 128, 159, .5);
+}
+
+p:hover a::after {
+  width: 100%;
+  transition: width .3s;
+}
+
+/* //밑으로 내려오는거 */
+.nav-container:hover .nav {
+  transform: translateY(0);
+}
+/* 
+.nav div.logo {
+    float: center;
+    width: auto;
+    height: auto;
+    padding-left: 3rem;
+}
+
+.nav div.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14pt;
+}
+
+.nav div.logo a:hover {
+    color: #000;
+	opacity: 90%;
+    background-color: #fff;
+    padding:15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+} */
+/* 메인리스트 다이브의 위치와 정렬 */
+.nav div.main_list {
+	width: auto;
+    height: 65px;
+    float: right; 
+    
+}
+/* 메인리스트 ul태그의 위치와 정렬 */
+.nav div.main_list ul {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  
+    
+}
+/*  */
+.nav div.main_list ul li {
+    width: auto;
+    height: 65px;
+    padding: 0;
+    padding-right: 1rem;
+     position: relative;
+}
+
+.nav div.main_list ul li a {
+    text-decoration: none;
+    color: #fff;
+  	position: relative;
+    line-height: 65px;
+    font-size: 14pt;
+}
+
+.nav div.main_list ul li a:hover {
+    color: #000;
+	/* opacity: 90%;
+    background-color: #fff;
+    padding:15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px; */
+}
+
+
+
+.nav div.main_list ul li:hover {
+
+  cursor: pointer;
+}
+
+
+.nav div.main_list ul li ul {
+ 
+  visibility: hidden;
+  opacity: 0;
+   min-width: 1rem; 
+  
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  left: 0;
+ position: relative;
+  display: block;
+ 
+}
+.nav div.main_list ul li ul li{
+background-color: rgba(0,0,0,0.2);
+padding-left: 15px;
+top: -28.5%;
+}
+
+.nav div.main_list ul li:hover > ul,
+.nav div.main_list ul li:focus-within > ul,
+.nav div.main_list ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  
+}
+
+
+
+
+
+
+
+
+.navTrigger {
+    display: none;
+}
+
+.nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        margin: 0;
+    }
+}
+/* 창 변환 사이즈값 */
+@media screen and (max-width:1000px) {
+    .navTrigger {
+        display: block;
+    }
+
+    .nav div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+    .nav div.show_list {
+        height: auto;
+        display: none;
+        
+    }
+    .nav div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+      	background-color: rgba(0,0,0,0.2);
+        background-position: center top;
+        line-height: 20px;
+    }
+    .nav div.main_list ul li {
+        width: 100%;
+        text-align: right;
+        color: #FFF;
+        font-size: 14pt;
+        z-index: 2;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    .nav div.main_list ul li a {
+        text-align: center;
+        width: 100%;
+        color: #fff;
+        font-size: 14pt;
+        padding: 30px;
+       position: relative;
+    }
+	.nav div.main_list ul li ul.dropdownlist{
+	 	transition: all 0.3s;
+	 	opacity: 0;
+	 	position: relative;
+	 	visibility: hidden;
+  		margin-top: 150px;
+  		
+	}
+	.nav div.main_list ul li ul.dropdownlist li{
+		left:-23% !important; 
+  		bottom: -90% !important;
+  		
+  		
+	}
+	.nav div.main_list ul li:hover > ul.dropdownlist{
+		opacity: 1;
+		visibility: visible;
+		z-index:3;
+	}
+	
+    .nav div.media_button {
+        display: block;
+    }
+}
+
+.navTrigger {
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    margin: auto;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+}
+
+.navTrigger i {
+    background-color: #fff;
+    border-radius: 2px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+    -webkit-animation: outT 0.8s backwards;
+    animation: outT 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+    margin: 5px 0;
+    -webkit-animation: outM 0.8s backwards;
+    animation: outM 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+    -webkit-animation: outBtm 0.8s backwards;
+    animation: outBtm 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+    -webkit-animation: inT 0.8s forwards;
+    animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+    -webkit-animation: inM 0.8s forwards;
+    animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+    -webkit-animation: inBtm 0.8s forwards;
+    animation: inBtm 0.8s forwards;
+}
+
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+.affix {
+    padding: 0;
+    transform: translateY(0);
+}
+
+
+
+
+
